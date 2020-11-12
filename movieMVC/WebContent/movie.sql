@@ -32,10 +32,11 @@ CREATE TABLE schedule( --상영관 -- 관람시간 영화관이랑 연결해주�
 
 
 CREATE TABLE Room(
-	roomNo number primary key,
+	roomNo number,
 	schNo number,
 	seatCnt number -- 그 상영관에 얼마나 좌석이 예매가 되어있는지 카운트
 )
+
 
 
 CREATE TABLE ticket (
