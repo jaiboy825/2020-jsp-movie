@@ -18,7 +18,7 @@ CREATE TABLE member(
 	pw VARCHAR2(20),
 	email VARCHAR2(50),
 	tel VARCHAR2(20),
-	birth dates
+	birth date
 );
 
 
