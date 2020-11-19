@@ -12,11 +12,20 @@
 	<div align="center">
 	<nav>
 		<a href="index.jsp">메인화면</a>&nbsp;
-		<a href="movieList.do?category = 01">액션</a>&nbsp;
-		<a href="movieList.do?category = 02">로맨스</a>&nbsp;
-		<a href="movieList.do?category = 03">코미디</a>&nbsp;
-		<a href="movieList.do?category = 04">스릴러</a>&nbsp;
-		<a href="movieList.do?category = 05">애니메이션</a>&nbsp;
+		<a href="AllMovieList.do?category=01">액션</a>&nbsp;
+		<a href="AllMovieList.do?category=02">로맨스</a>&nbsp;
+		<a href="AllMovieList.do?category=03">코미디</a>&nbsp;
+		<a href="AllMovieList.do?category=04">스릴러</a>&nbsp;
+		<a href="AllMovieList.do?category=05">애니메이션</a>&nbsp;
 		<a href="#">내 예매목록</a>
 	</nav>
+	<%
+	String login = (String)session.getAttribute("login");
+	if(login == null){
+		
+	}else {
+		
+	}
+	%>
 	</div>
+	

@@ -39,13 +39,20 @@ public class MovieAllListController extends HttpServlet {
 		// 한글 인코딩처리
 		req.setCharacterEncoding("utf-8");
 		String category = req.getParameter("category");
-		
-		//MovieDAO 부르기
 		MovieDAO dao = new MovieDAO();
-		//dao에 있는 getList로 테이블에 있는 값들을 BookVO형식으로 list에 담는다
-		ArrayList<MovieVO> list = dao.getMovieList(category);
-		//list라는 항목에 list를 담아서 selectBook.jsp로 보낸다
+		ArrayList<MovieVO> list = null;
+		if(category == null) {
+			list = dao.getMovieList("all");			
+		}else {
+			list = dao.getMovieList(category);
+		}
+		
+		
 		req.setAttribute("list", list);
+		//MovieDAO 부르기
+		//dao에 있는 getList로 테이블에 있는 값들을 BookVO형식으로 list에 담는다
+//		ArrayList<MovieVO> list = dao.getMovieList(category);
+		//list라는 항목에 list를 담아서 selectBook.jsp로 보낸다
 		//list를 selectBook.jsp로 forward
 		req.getRequestDispatcher("/movieList.jsp").forward(req, resp);
 		
