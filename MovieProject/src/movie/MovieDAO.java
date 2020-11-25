@@ -45,4 +45,33 @@ public class MovieDAO {
 		// 모든 값을 담은 list를 리턴
 		return movieList;
 	}
+
+	public String findUser(String id, String password) {
+		String n = "";
+		// conn 과 pstmt rs 불러온다
+		Connection conn = DBUtil.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			String sql = "SELECT * FROM member WHERE id = ? and pw = ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.setString(2, password);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				n = id;
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			DBUtil.close(conn, pstmt, rs);
+		}
+		return n;
+	}
+
+	public MovieVO getMovieInfo(String movieNo) {
+		MovieVO vo = new MovieVO();
+		return vo;
+	}
 }

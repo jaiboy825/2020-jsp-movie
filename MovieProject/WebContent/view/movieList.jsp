@@ -2,7 +2,7 @@
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<jsp:include page="header.jsp" />
+<jsp:include page="/header.jsp" />
 <div align="center">
 	
 	<table>
@@ -20,8 +20,9 @@
 			<%
 				}
 			%>
+			<!-- "/movieInfo.jsp?movieNo=<vo.getMovieNo()%>" -->
 			<td width="333" align="center"><a
-				href="movieInfo.jsp?movieNo=<%=vo.getMovieNo()%>"> <img alt=""
+				href="/movieInfo.do?movieNo=<%=vo.getMovieNo()%>"> <img alt=""
 					src="imgs/<%=vo.getImg()%>" width="300" height="200">
 			</a>
 			<p>
@@ -33,4 +34,4 @@
 		</tr>
 	</table>
 </div>
-<jsp:include page="footer.jsp" />
+<jsp:include page="/footer.jsp" />
