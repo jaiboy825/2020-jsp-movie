@@ -24,13 +24,7 @@
 				예매목록</a>
 		</nav>
 		<table>
-			<form action="/Login.do" method="post">
-				<tr>
-					<td>아이디 <input type="text" name="id" required></td>
-					<td>비밀번호 <input type="password" name="password" required></td>
-					<td><input type="submit" value="로그인"></td>
-				</tr>
-			</form>
+		<a href="/login.jsp">로그인</a>
 		<a href="/register.jsp">회원가입</a>
 		</table>
 		<%

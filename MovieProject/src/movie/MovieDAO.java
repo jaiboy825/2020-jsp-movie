@@ -69,7 +69,10 @@ public class MovieDAO {
 		}
 		return n;
 	}
-
+	public int UserRegister(MemberVO vo) {
+		return 0;
+		
+	}
 	public MovieVO getMovieInfo(String movieNo) {
 		MovieVO vo = new MovieVO();
 		return vo;
