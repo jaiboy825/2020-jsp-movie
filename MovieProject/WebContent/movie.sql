@@ -20,7 +20,7 @@ CREATE TABLE member(
 	tel VARCHAR2(20),
 	birth date
 );
-
+select * from member;
 
 CREATE TABLE schedule( --상영관 -- 관람시간 영화관이랑 연결해주는 테이블
 	schNo number primary key,
@@ -57,7 +57,7 @@ insert into movie values(10005,'반도',04, 155 , '6.jpg','잘생겼다 ');
 insert into movie values(10006,'23아이덴티디',04, 150 , '7.jpg','꿀잼');
 
 insert into member values('test','1234','test@test.com','010-1234-1234','2002-05-12');
-
+insert into member values('admin','admin','admin@admin.com','010-1234-1234','2002-05-12');
                                            --sysdate varchar2 -> date 
 insert into schedule values(1,10000,TO_DATE('2020/11/11 11:50','yyyy/mm/dd hh24:mi'),120,1);
 insert into schedule values(2,10000,TO_DATE('2020/11/11 1:50','yyyy/mm/dd hh24:mi'),120,1);

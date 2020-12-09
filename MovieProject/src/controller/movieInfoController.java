@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import movie.MovieDAO;
 import movie.MovieVO;
+import movie.ScheduleVO;
 
 public class movieInfoController implements Controller {
 
@@ -18,12 +19,14 @@ public class movieInfoController implements Controller {
 		req.setCharacterEncoding("utf-8");
 		String movieNo = req.getParameter("movieNo");
 		MovieDAO dao = new MovieDAO();
-		MovieVO list = null;
-		list = dao.getMovieInfo(movieNo);
-
-		req.setAttribute("list", list);
-		req.getRequestDispatcher("/view/movieList.jsp").forward(req, resp);
-
+		MovieVO vo = dao.getMovieInfo(movieNo);
+		String category = dao.getCategory(movieNo);
+		ArrayList<ScheduleVO> scheList = dao.getSchedule(vo.getMovieNo());
+		req.setAttribute("vo", vo);
+		req.setAttribute("ct", category);
+		req.setAttribute("scheList", scheList);
+		req.getRequestDispatcher("/view/movieInfo.jsp").forward(req, resp);
+		
 	}
 
 }

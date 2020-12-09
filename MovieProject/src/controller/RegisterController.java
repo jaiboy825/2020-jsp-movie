@@ -55,7 +55,7 @@ public class RegisterController implements Controller {
 			}
 		}else {
 			req.setAttribute("error", "비밀번호와 비밀번호 확인란의 값이 다릅니다.");
-			req.getRequestDispatcher("/index.jsp").forward(req, resp);
+			req.getRequestDispatcher("/register.jsp").forward(req, resp);
 		}
 	}
 }
