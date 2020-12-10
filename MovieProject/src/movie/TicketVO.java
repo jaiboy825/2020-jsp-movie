@@ -63,11 +63,4 @@ public class TicketVO {
 		this.id = id;
 	}
 
-	@Override
-	public String toString() {
-		return "TicketVO [ticketNo=" + ticketNo + ", bookDate=" + bookDate + ", schNo=" + schNo + ", seatNo=" + seatNo
-				+ ", id=" + id + "]";
-	}
-	
-	
 }

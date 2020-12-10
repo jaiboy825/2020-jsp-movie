@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 
-
 public class MovieDAO {
 
 	public ArrayList<MovieVO> getMovieList(String category) {
@@ -92,7 +91,8 @@ public class MovieDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			DBUtil.close(conn, pstmt, rs);;
+			DBUtil.close(conn, pstmt, rs);
+			;
 		}
 		return n;
 
@@ -153,19 +153,62 @@ public class MovieDAO {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try {
-			String sql = "SELECT movieName , mt.runtime , mt.movieNo , st.schNo , st.roomNo , runDay, ro.seatcnt FROM movie mt , schedule st, room ro WHERE mt.movieNo = st.movieNo AND mt.movieNo = ? AND ro.schNo = st.schNo";
+			String sql = "SELECT movieName , mt.runtime , mt.movieNo , st.schNo , st.roomNo , runDay, ro.seatcnt FROM movie mt , schedule st, room ro WHERE mt.movieNo = st.movieNo AND mt.movieNo = ?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, movieNo);
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
-				ScheduleVO vo =
-					new ScheduleVO(
-						rs.getString("movieName"), rs.getInt("schNo"),
-						rs.getInt("movieNo"), rs.getTimestamp("runDay"),
-						rs.getInt("runtime"), rs.getInt("roomNo"),
-						rs.getInt("seatCnt"));
-				System.out.println(rs.getInt("schNo"));
+				ScheduleVO vo = new ScheduleVO(rs.getString("movieName"), rs.getInt("schNo"), rs.getInt("movieNo"),
+						rs.getTimestamp("runDay"), rs.getInt("runtime"), rs.getInt("roomNo"), rs.getInt("seatCnt"));
+				list.add(vo);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBUtil.close(conn, pstmt, rs);
+			;
+		}
+
+		return list;
+	}
+
+	public int getSeatCnt(int schNo) {
+		int n = 0;
+		Connection conn = DBUtil.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			String sql = "SELECT seatcnt FROM schedule st, room ro where st.schNo = ? AND ro.schNo = st.schNo";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, schNo);
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				n = rs.getInt(1);
+				System.out.println(n);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBUtil.close(conn, pstmt, rs);
+			;
+		}
+		return n;
+	}
+	public ArrayList<TicketVO> findTicket(int schNo) {
+		ArrayList<TicketVO> list = new ArrayList<TicketVO>();
+		Connection conn = DBUtil.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			String sql = "select * from ticket WHERE schNo = ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, schNo);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				TicketVO vo = new TicketVO(rs.getInt("ticketNo"), rs.getDate("bookDate"), rs.getInt("schNo"),
+						rs.getInt("seatNo"), rs.getString("id"));
 				list.add(vo);
 			}
 		} catch (Exception e) {
@@ -176,4 +219,15 @@ public class MovieDAO {
 
 		return list;
 	}
+	public int insertTicket(TicketVO vo) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public int getMaxTicketNo() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	
 }

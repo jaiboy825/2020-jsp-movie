@@ -63,7 +63,7 @@ insert into schedule values(1,10000,TO_DATE('2020/11/11 11:50','yyyy/mm/dd hh24:
 insert into schedule values(2,10000,TO_DATE('2020/11/11 1:50','yyyy/mm/dd hh24:mi'),120,1);
 insert into schedule values(3,10000,TO_DATE('2020/11/11 3:10','yyyy/mm/dd hh24:mi'),120,1);
 insert into schedule values(4,10000,TO_DATE('2020/11/11 8:50','yyyy/mm/dd hh24:mi'),120,1);
-
+select * from SCHEDULE;
                           --좌석 번호 : 1 - 20 
 insert into ticket values(1,SYSDATE,1,15,'test');
 insert into ticket values(2,SYSDATE,1,14,'test');
@@ -79,4 +79,4 @@ from movie mt, schedule st where mt.movieNo = st.movieNo and mt.movieNo = 10000;
 
 
 select st.movieNo, roomNo, runDay, bookDate, seatNo, id from ticket tt, schedule st where tt.schNo = st.schNo and st.schNo = 1;
-
+SELECT movieName , mt.runtime , mt.movieNo , st.schNo , st.roomNo , runDay, ro.seatcnt FROM movie mt , schedule st, room ro WHERE mt.movieNo = st.movieNo AND st.movieNo = 10000;

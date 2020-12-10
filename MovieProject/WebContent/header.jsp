@@ -8,7 +8,6 @@
 <!-- charset을 utf-8로 한다 -->
 <title>Insert title here</title>
 <link rel="stylesheet" href="app.css">
-
 </head>
 <body>
 	<div class="header">
