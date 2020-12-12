@@ -31,23 +31,31 @@ public class SeatInfoController implements Controller {
 		int schNo = Integer.parseInt(req.getParameter("schNo"));
 		MovieDAO dao = new MovieDAO();
 		ArrayList<TicketVO> list = dao.findTicket(schNo);
-		if(list != null) {
+		if (list != null) {
 			req.setAttribute("ArrayList", list);
 			req.setAttribute("schNo", schNo);
-			req.getRequestDispatcher("/seat.jsp").forward(req, resp);			
 		}
-		
+
 		String[] selectList = req.getParameterValues("selectList");
-		if(selectList != null) {
+		if (selectList != null) {
 			String id = req.getParameter("id");
 			for (int i = 0; i < selectList.length; i++) {
-				System.out.println(selectList[i]);
-				int ticketNo = dao.getMaxTicketNo();
+				int notEmpty = dao.getRoomEmpty(schNo);
+				int ticketNo = dao.TicketMaxNo();
 				TicketVO vo = new TicketVO(ticketNo, new Date(123), schNo, Integer.parseInt(selectList[i]), id);
-				int status = dao.insertTicket(vo);
+				if (notEmpty > 0) {
+					int status = dao.insertTicket(vo);
+					if (status > 0) {
+						req.setAttribute("ticketOk", "예매되었습니다.");
+					}
+				} else {
+					int status = dao.insertTicketAndNewRoom(vo);
+					if (status > 0) {
+						req.setAttribute("ticketOk", "예매되었습니다.");
+					}
+				}
 			}
-			req.setAttribute("ticketOk", "예약 완료");
-			req.getRequestDispatcher("/index.jsp").forward(req, resp);
 		}
+		req.getRequestDispatcher("/view/seatInfo.jsp").forward(req, resp);
 	}
 }

@@ -9,58 +9,57 @@
 <div class="container">
 
 	<div class="info_container">
-		<div class="info_title">영화목록</div>
 		<%
 			MovieVO vo = (MovieVO) request.getAttribute("vo");
 		String ct = (String) request.getAttribute("ct");
 		ArrayList<ScheduleVO> scheList = (ArrayList) request.getAttribute("scheList");
-		
+
 		MovieDAO dao = new MovieDAO();
-		
 		%>
+		<div class="backImg">
+			<img alt="" src="imgs/<%=vo.getImg()%>">
+		</div>
 		<div class="info">
 			<!-- "/movieInfo.jsp?movieNo=<vo.getMovieNo()%>" -->
-			<div>
-				<img alt="" src="imgs/<%=vo.getImg()%>" width="300" height="200">
-			</div>
-			<div>
-				<div class="movieCategory"><%=ct%></div>
-				<div><%=vo.getMovieName()%></div>
-				<div>
+			<div class="infos">
+				<div class="imovieCategory"><%=ct%></div>
+				<div class="movieName"><%=vo.getMovieName()%></div>
+				<div class="movieInfos">
 					상영시간:
-					<%=vo.getRuntime()%></div>
-				<div>
+					<%=vo.getRuntime()%>분</div>
+				<div class="movieInfos">
 					정보 :
 					<%=vo.getInfo()%></div>
 				<div class="schedule_container">
-					<div class="title">시간</div>
+					<div class="title">관람 시간 선택</div>
 					<div class="schedule">
-						<%
-							for (ScheduleVO scheVO : scheList) {
-							int seatCnt = dao.getSeatCnt(scheVO.getSchNo());
-							SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-							String date = sdf.format(scheVO.getRunDay());
-							sdf = new SimpleDateFormat("HH:mm");
-							String startTime = sdf.format(scheVO.getRunDay());
-						%>
-						<div class="runtime">
-							<%=startTime%>
-							/
-							<%=date%>
-						</div>
-						<a href="/seat.do?schNo=<%=scheVO.getSchNo()%>">
-						<div class="seat">
-							<div><%= scheVO.getRoomNo() %>관</div>
-							<div><%=seatCnt%></div>/20
-							
-						</div>
-						</a>
-						 
-						<%
-							}
-						%>
+						<form action="/seat.do" method="post">
+							<select width="400" name="schNo">
+								<%
+									for (ScheduleVO scheVO : scheList) {
+									int seatCnt = dao.getSeatCnt(scheVO.getSchNo());
+									SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+									String date = sdf.format(scheVO.getRunDay());
+									sdf = new SimpleDateFormat("HH:mm");
+									String startTime = sdf.format(scheVO.getRunDay());
+								%>
+								<option value="<%=scheVO.getSchNo()%>"><%=scheVO.getRoomNo()%>관
+									(<%=seatCnt%> / 20)
+									<%=startTime%> /
+									<%=date%>
+								</option>
+
+								<%
+									}
+								%>
+							</select>
+							<input type="submit" value="빠른 예매" class="rev_button">
+						</form>
 					</div>
 				</div>
+			</div>
+			<div class="info_img">
+				<img alt="" src="imgs/<%=vo.getImg()%>">
 			</div>
 		</div>
 	</div>

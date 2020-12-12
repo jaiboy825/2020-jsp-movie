@@ -28,7 +28,7 @@ tr>td {
 }
 
 td>input {
-	padding-left : 20px;
+	padding-left: 20px;
 	width: 70%;
 	height: 50px;
 	outline: none;
@@ -44,15 +44,30 @@ td>input {
 	<form action="/Login.do" method="post">
 		<table align="center">
 			<tr>
-				<td>아이디 <input type="text" name="id" required></td>
+				<td>아이디 <input type="text" name="id" required id="id"></td>
 			</tr>
 			<tr>
-				<td>비밀번호 <input type="password" name="password" required></td>
+				<td>비밀번호 <input type="password" name="password" required
+					id="password"></td>
 			</tr>
 			<tr>
-				<td><input type="submit" value="로그인" class="button"></td>
+				<td><input type="submit" value="로그인" class="button" id="login"></td>
 			</tr>
 		</table>
+		<script type="text/javascript">
+			login.addEventListener("click", function() {
+				if (id.value.trim() == "") {
+					alert("아이디를 입력해주세요");
+					return;
+				}
+				
+				if(password.value.trim() == "") {
+					alert("비밀번호를 입력해주세요");
+					return;
+				}
+			});
+		</script>
 	</form>
 </div>
+
 <jsp:include page="footer.jsp"></jsp:include>

@@ -50,27 +50,57 @@ if (error != null) {
 	<form action="/Register.do"  method="post">
 		<table align="center">
 			<tr>
-				<td>아이디 <input type="text" name="id" required></td>
+				<td>아이디 <input type="text" name="id" required id="id"></td>
 			</tr>
 			<tr>
-				<td>비밀번호 <input type="password" name="password" required></td>
+				<td>비밀번호 <input type="password" name="password" required id="password"></td>
 			</tr>
 			<tr>
-				<td>비밀번호 확인<input type="password" name="passwordC" required></td>
+				<td>비밀번호 확인<input type="password" name="passwordC" required id="passwordC"></td>
 			</tr>
 			<tr>
-				<td>이메일 <input type="text" name="email" required></td>
+				<td>이메일 <input type="text" name="email" required id="email"></td>
 			</tr>
 			<tr>
-				<td>전화번호 <input type="text" name="phone" required></td>
+				<td>전화번호 <input type="text" name="phone" required id="phone"></td>
 			</tr>
 			<tr>
-				<td>생일 <input type="date" name="birth" required></td>
+				<td>생일 <input type="date" name="birth" required id="birth"></td>
 			</tr>
 			<tr>
-				<td><input type="submit" value="회원가입" class="button"></td>
+				<td><input type="submit" value="회원가입" class="button" id="register"></td>
 			</tr>
 		</table>
+		<script type="text/javascript">
+			register.addEventListener("click", function() {
+				if (id.value.trim() == "") {
+					alert("아이디를 입력해주세요");
+					return;
+				}
+				
+				if(password.value.trim() == "") {
+					alert("비밀번호를 입력해주세요");
+					return;
+				}
+				if(passwordC.value.trim() == "") {
+					alert("비밀번호 확인란을 입력해주세요");
+					return;
+				}				
+				
+				if(email.value.trim() == "") {
+					alert("이메일을 입력해주세요");
+					return;
+				}
+				if(phone.value.trim() == ""){
+					alert("전화번호를 입력해주세요");
+					return;
+				}
+				if(birth.value.trim() == ""){
+					alert("생일을 입력해주세요");
+					return;
+				}
+			});
+		</script>
 	</form>
 </div>
 <jsp:include page="footer.jsp"></jsp:include>

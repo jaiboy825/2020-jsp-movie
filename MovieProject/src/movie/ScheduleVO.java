@@ -1,6 +1,5 @@
 package movie;
 
-import java.sql.Date;
 import java.sql.Timestamp;
 
 public class ScheduleVO {
@@ -10,14 +9,12 @@ public class ScheduleVO {
 	private Timestamp runDay;
 	private int runtime;
 	private int roomNo;
-	private int seatCnt;
 
 	public ScheduleVO() {
 		super();
 	}
 
-	public ScheduleVO(String movieName, int schNo, int movieNo, Timestamp runDay, int runtime, int roomNo,
-			int seatCnt) {
+	public ScheduleVO(String movieName, int schNo, int movieNo, Timestamp runDay, int runtime, int roomNo) {
 		super();
 		this.movieName = movieName;
 		this.schNo = schNo;
@@ -25,16 +22,8 @@ public class ScheduleVO {
 		this.runDay = runDay;
 		this.runtime = runtime;
 		this.roomNo = roomNo;
-		this.seatCnt = seatCnt;
 	}
 
-	public int getSeatCnt() {
-		return seatCnt;
-	}
-
-	public void setSeatCnt(int seatCnt) {
-		this.seatCnt = seatCnt;
-	}
 
 	public String getMovieName() {
 		return movieName;

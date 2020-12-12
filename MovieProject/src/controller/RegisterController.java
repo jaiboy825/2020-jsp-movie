@@ -2,19 +2,13 @@ package controller;
 
 import java.io.IOException;
 import java.sql.Date;
-import java.time.LocalDate;
-import java.util.ArrayList;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import movie.MemberVO;
 import movie.MovieDAO;
-import movie.MovieVO;
 
 /**
  * Servlet implementation class BookInsertController
@@ -50,7 +44,7 @@ public class RegisterController implements Controller {
 				req.setAttribute("success", "회원 가입 성공");
 				req.getRequestDispatcher("/index.jsp").forward(req, resp);
 			}else {
-				req.setAttribute("error", "회원 가입 실패");
+				req.setAttribute("error", "아이디가 중복됩니다");
 				req.getRequestDispatcher("/index.jsp").forward(req, resp);
 			}
 		}else {

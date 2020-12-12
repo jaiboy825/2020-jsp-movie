@@ -50,6 +50,14 @@ public class MemberVO {
 	public void setBirth(Date birth) {
 		this.birth = birth;
 	}
+	@Override
+	public String toString() {
+		return "MemberVO [id=" + id + ", password=" + password + ", email=" + email + ", phone=" + phone + ", birth="
+				+ birth + ", getId()=" + getId() + ", getPassword()=" + getPassword() + ", getEmail()=" + getEmail()
+				+ ", getPhone()=" + getPhone() + ", getBirth()=" + getBirth() + ", getClass()=" + getClass()
+				+ ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
+	}
+	
 	
 	
 }

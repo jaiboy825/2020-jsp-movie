@@ -15,6 +15,10 @@ String error = (String) request.getAttribute("error");
 if (error != null) {
 	out.print("<script>alert('" + error + "');</script>");
 }
+String ok = (String) request.getAttribute("ok");
+if(ok != null) {
+	out.print("<script>alert('" + ok + "');</script>");
+}
 %>
 <script type="text/javascript">
 	location.href = "/AllMovieList.do";
