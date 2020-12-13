@@ -395,3 +395,115 @@ a {
 	margin: 20px;
 	font: 16px Calibri, arial;
 }
+
+.login_container{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 500px;
+	height: 500px;
+	margin: 0px auto;
+
+}
+
+.register_container{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 500px;
+	height: 700px;
+	margin: 0px auto;
+}
+
+.login{
+	width: 100%;
+	height: 300px;
+	border: 1px solid #ddd;	
+	background-color: white;
+	border-radius: 10px;
+	padding: 20px;
+}
+
+.register{
+	width: 100%;
+	height: 500px;
+	border: 1px solid #ddd;	
+	background-color: white;
+	border-radius: 10px;
+	padding: 20px;
+}
+
+.login > div {
+	width: 100%;
+	height: 100px;
+	font: 22px Calibri,arial;
+	line-height: 100px;
+	display: flex;
+	justify-content: space-between;
+}
+.register > div {
+	width: 100%;
+	height: 70px;
+	font: 16px Calibri,arial;
+	line-height: 70px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.login > div > input {
+	width: 300px;
+	margin-top: 20px;
+	height: 60px;
+	padding-left: 20px;
+	outline: none;
+	border-radius: 10px;
+	border: 1px solid #503396;
+}
+
+.register > div > input {
+	width: 300px;
+	margin-top: 10px;
+	height: 50px;
+	padding-left: 20px;
+	outline: none;
+	border-radius: 10px;
+	border: 1px solid #503396;
+}
+
+.login > input {
+	width: 100%;
+	height: 60px;
+	border: 1px solid #6b44c4;
+	background-color: #6b44c4;
+	border-radius: 10px;
+	outline: none;
+	color: #feffa4;
+	transition: 0.3s;
+	font: 23px Calibri, arial;
+	cursor: pointer;
+}
+
+.register > input{
+	width: 100%;
+	height: 40px;
+	border: 1px solid #6b44c4;
+	background-color: #6b44c4;
+	border-radius: 10px;
+	outline: none;
+	color: #feffa4;
+	transition: 0.3s;
+	font: 17px Calibri, arial;
+	cursor: pointer;
+}
+
+.login > input:hover{
+	background-color: #503396;
+	color: white;
+}
+
+.register > input:hover {
+	background-color: #503396;
+	color: white;
+}

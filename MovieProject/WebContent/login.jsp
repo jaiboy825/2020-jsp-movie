@@ -3,65 +3,34 @@
 <jsp:include page="header.jsp"></jsp:include>
 <style>
 .container {
-	width: 500px;
-	height: 200px;
-	margin: 30px auto;
-	border: 1px solid rgba(0, 0, 0, 0.25);
-	border-radius: 10px;
-	padding: 20px;
-}
-
-table {
-	width: 100%;
-}
-
-tr td {
-	padding: 5px;
-}
-
-tr>td {
-	width: 100%;
-	height: 50px;
-	display: flex;
-	justify-content: space-between;
-	line-height: 50px;
-}
-
-td>input {
-	padding-left: 20px;
-	width: 70%;
-	height: 50px;
-	outline: none;
-}
-
-.button {
-	padding: 0;
-	margin-top: 20px;
-	width: 100%;
+	background-color: rgba(0,0,0,0.4);
 }
 </style>
 <div class="container">
+<!-- 헤더에서 로그인을 눌렀을떄 아이디 비밀번호를 입력할 화면을 띄울 페이지 -->
 	<form action="/Login.do" method="post">
-		<table align="center">
-			<tr>
-				<td>아이디 <input type="text" name="id" required id="id"></td>
-			</tr>
-			<tr>
-				<td>비밀번호 <input type="password" name="password" required
-					id="password"></td>
-			</tr>
-			<tr>
-				<td><input type="submit" value="로그인" class="button" id="login"></td>
-			</tr>
-		</table>
+		<div class="login_container">
+			<div class = "login">
+				<div> 
+					아이디 <input type="text" name="id" required id="id"> <!-- 아이디 -->
+				</div>
+				<div>
+					비밀번호 <input type="password" name="password" required id="password"> <!-- 패스워드 -->
+				</div>
+				<input type="submit" value="로그인" class="button" id="login"> <!-- 버튼 -->
+			</div>
+		</div>
 		<script type="text/javascript">
 			login.addEventListener("click", function() {
+				//버튼을 눌렀을때 
 				if (id.value.trim() == "") {
+					//id 가 비어있으면 alert 창 띄우기
 					alert("아이디를 입력해주세요");
 					return;
 				}
-				
-				if(password.value.trim() == "") {
+
+				if (password.value.trim() == "") {
+					//password 가 비어있으면 alert 창 띄우기
 					alert("비밀번호를 입력해주세요");
 					return;
 				}

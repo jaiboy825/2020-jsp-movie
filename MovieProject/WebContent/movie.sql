@@ -87,6 +87,8 @@ update room set seatCnt = seatCnt +1 where schNo = 1;
 select movieName, DECODE(category, 01, '액션',02, '로맨스', 03, '코미디', 04, '스릴러', 05, '애니메이션') category,img,mt.runtime,info,schNo,roomNo,to_char(runDay, 'mm/dd') as 날짜 ,to_char(runDay, 'HH24:MI') as 상영시간, roomno
 from movie mt, schedule st where mt.movieNo = st.movieNo and mt.movieNo = 10000;
 
+select * from room;
+select * from member;
 
 select st.movieNo, roomNo, runDay, bookDate, seatNo, id from ticket tt, schedule st where tt.schNo = st.schNo and st.schNo = 1;
 SELECT movieName , mt.runtime , mt.movieNo , st.schNo , st.roomNo , runDay, ro.seatcnt FROM movie mt , schedule st, room ro WHERE mt.movieNo = st.movieNo AND st.movieNo = 10000;

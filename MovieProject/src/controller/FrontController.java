@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
  * Servlet implementation class frontController
  */
 @WebServlet(name = "front", urlPatterns = { "*.do" })
+//이름은 front .do로 오는 것들을 받는다
 public class FrontController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	String charset = null;
@@ -33,7 +34,8 @@ public class FrontController extends HttpServlet {
 	public void init(ServletConfig config) throws ServletException {
 		// url과 sub controller 맵핑
 		charset = config.getInitParameter("charset");
-
+		
+		//list를 만들어서 ~.do 로 보내지는 것들을 저장하고 그에 맞는 컨트롤러를 연결해준다
 		list = new HashMap<String, Controller>();
 		list.put("/AllMovieList.do", new MovieAllListController());
 		list.put("/Login.do", new LoginoutController());

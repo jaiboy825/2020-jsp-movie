@@ -11,7 +11,6 @@ public class TicketVO {
 
 	public TicketVO() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public TicketVO(int ticketNo, Date bookDate, int schNo, int seatNo, String id) {

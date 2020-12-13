@@ -10,3 +10,5 @@ public interface Controller {
 	public void execute(HttpServletRequest req, HttpServletResponse resp) 
 			throws ServletException , IOException;
 }
+
+//frontController 방식에서 필요한 기본 controller 이다
