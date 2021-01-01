@@ -23,3 +23,5 @@
 ======
 ![localhost_8090_MyRevList do_id=test](https://user-images.githubusercontent.com/55534787/102711063-50377100-42fa-11eb-9293-1d677395424b.png)
 
+### 만들면서 어려웠던점 
+좌석을 예매를 할때 그 영화의 좌석을 어떻게 구현해야 될까를 많이 고민했었고, 예전에 배웠던 label 디자인을 생각해서 좌석을 더 예쁘게 디자인 할 수 있게 되었다.
