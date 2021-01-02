@@ -17,12 +17,14 @@
 
 #### 영화정보
 ![localhost_8090_movieInfo do_movieNo=10000](https://user-images.githubusercontent.com/55534787/102711018-f2a32480-42f9-11eb-8c54-4f24f56cc960.png)
-
+- 로그인 후 원하는 영화를 클릭하면 영화 정보 화면으로 넘어온다 옵션을 통해 원하는 시간대를 선택 할 수 있다.
 #### 좌석정보
 ![localhost_8090_seat do](https://user-images.githubusercontent.com/55534787/102711023-f8990580-42f9-11eb-954c-502c3f24c1f6.png)
+- 원하는 시간대를 선택하고 나면 그 시간대의 좌석 현황을 보여주게 된다. x 자 표시가 안된 좌석을 선택 하면 된다.
 
 #### 예매정보
 ![localhost_8090_MyRevList do_id=test](https://user-images.githubusercontent.com/55534787/102711063-50377100-42fa-11eb-9293-1d677395424b.png)
-
+- 예매 정보 화면으로 내가 예매한 티켓의 정보와 그 티켓을 취소 시킬 수 있는 버튼이 존재한다.
+- 티켓을 취소하게 되면 그 자리는 다시 공석으로 되서 다시 예매 할 수 있다.
 
 - 사진 출처 : 구글
